@@ -1,4 +1,5 @@
 package com.hashmap;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import junit.framework.Assert;
 public class MyHashMapTest 
