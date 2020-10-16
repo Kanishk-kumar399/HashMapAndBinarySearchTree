@@ -26,4 +26,22 @@ public class MyLinkedListHashMapTest
         System.out.println(myLinkedListHashMap);
         Assert.assertEquals(3,frequency);
 	}
+	@Test
+	public void givenASentence_WhenAWordIsGiven_ShouldRemoveThatWordFromTheHashTable() {
+		String sentence = "Paranoids are not paranoid because they are paranoid but"
+				+ " because they keep putting themselves deliberately into paranoid "
+				+ "avoidable situations";
+		MyLinkedListHashMap<String, Integer> myHashTable = new MyLinkedListHashMap<>();
+		String[] words = sentence.toLowerCase().split(" ");
+		for(String word : words) {
+			Integer value =  myHashTable.get(word);
+			if(value == null)
+				value = 1;
+			else 
+				value = value + 1;
+			myHashTable.add(word, value);
+		}
+		String deletedWord = myHashTable.remove("avoidable");		
+		Assert.assertEquals("avoidable", deletedWord);
+	}
 }
